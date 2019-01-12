@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
             //creates the blue bar widget
             title: Text('EasyList'), //shows the title on the blue bar widget
           ),
-          body: ProductManager(),
+          body: ProductManager('Food Tester'),
           ), //from material class),
     ); //a widget would need to return a widget; MaterialApp() is the root widget
   }

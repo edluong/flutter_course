@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import './products.dart';
 
 class ProductManager extends StatefulWidget {
+  
+  final String stringProduct; //used to pass in variables to the product
+  ProductManager(this.stringProduct);
+
   @override
     State<StatefulWidget> createState() {
      
@@ -10,7 +14,15 @@ class ProductManager extends StatefulWidget {
 }
 
 class _ProductManagerState extends State <ProductManager> { 
-  List<String> _products = ['Food Tester'];
+  List<String> _products = [];
+
+  //initstate() runs before setstate(), so no need to call it within the method
+  //lifecycle hook
+  @override
+    void initState() { //used to make sure the state changes for the variable changed
+      super.initState(); //recommended now to move at the beginning
+      _products.add(widget.stringProduct); //using widget can access the parent's variables
+    }
 
   @override
     Widget build(BuildContext context) {
